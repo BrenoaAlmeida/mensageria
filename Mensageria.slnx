@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Itens de Solução/">
+    <File Path=".gitignore" />
+  </Folder>
   <Project Path="Consumer/Consumer.csproj" />
   <Project Path="Infra/Infra.csproj" Id="d2d93025-e999-4c25-a0e0-85be9667c6dc" />
   <Project Path="Producer/Producer.csproj" />
