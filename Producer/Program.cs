@@ -12,7 +12,7 @@ class Program
 
         // Lendo os valores
         string bootstrapServers = config["Kafka:bootstrapServers"]!;
-        string topico = config["Kafka:Topicos:Ordens"]!;
+        string topico = config["Kafka:Orders:Topic"]!;
 
         var produtor = new KafkaMessageProducer(bootstrapServers, topico);
         try
@@ -27,7 +27,7 @@ class Program
 
             var key = Guid.NewGuid().ToString();
 
-            await produtor.EnviarMensagemAsync(key, order);
+            await produtor.EnviarMensagemAsync(order);
         }
         catch (Exception ex)
         {

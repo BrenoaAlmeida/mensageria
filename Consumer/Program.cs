@@ -1,5 +1,4 @@
-﻿using Consumer;
-using Infra;
+﻿using Infra;
 using Microsoft.Extensions.Configuration;
 
 class Program
@@ -13,9 +12,10 @@ class Program
 
 
         string bootstrapServers = config["Kafka:bootstrapServers"]!;
-        string topico = config["Kafka:Topicos:Ordens"]!;
-        
-        var consumidor = new KafkaMessageConsumer(bootstrapServers: "localhost:9092", groupId: "order-tracker", topico: Constantes.Topicos.Ordens);
+        string topico = config["Kafka:Orders:Topic"]!;
+        string groupId = config["Kafka:Orders:ConsumerGroupId"]!;
+
+        var consumidor = new KafkaMessageConsumer(bootstrapServers, groupId, topico);
 
         try
         {
